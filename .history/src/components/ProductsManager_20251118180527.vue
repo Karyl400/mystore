@@ -6,8 +6,7 @@
         <div class="flex items-center gap-4">
           <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl">
             <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
           <div>
@@ -22,8 +21,8 @@
       <!-- Toast notification -->
       <div v-if="message" :class="[
         'fixed top-8 right-8 px-6 py-4 rounded-2xl shadow-2xl text-white z-50 backdrop-blur-xl border-2',
-        messageType === 'success'
-          ? 'bg-emerald-500/90 border-emerald-400'
+        messageType === 'success' 
+          ? 'bg-emerald-500/90 border-emerald-400' 
           : 'bg-rose-500/90 border-rose-400',
         'animate-toast'
       ]">
@@ -36,15 +35,11 @@
       </div>
 
       <!-- Modale de confirmation -->
-      <div v-if="showConfirm"
-        class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-fadeIn">
-        <div
-          class="bg-gray-800 p-8 rounded-3xl shadow-2xl max-w-lg w-full mx-4 border-2 border-gray-700 animate-scaleIn">
-          <div
-            class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-rose-500 to-orange-600">
+      <div v-if="showConfirm" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 animate-fadeIn">
+        <div class="bg-gray-800 p-8 rounded-3xl shadow-2xl max-w-lg w-full mx-4 border-2 border-gray-700 animate-scaleIn">
+          <div class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-rose-500 to-orange-600">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-center text-white">Attention</h3>
@@ -52,11 +47,11 @@
             {{ confirmMessage }}
           </p>
           <div class="flex gap-4">
-            <button @click="cancelAction"
+            <button @click="cancelAction" 
               class="flex-1 bg-gray-700 hover:bg-gray-600 text-white px-6 py-4 rounded-2xl transition-all font-semibold text-lg">
               Annuler
             </button>
-            <button @click="confirmAction"
+            <button @click="confirmAction" 
               class="flex-1 bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-700 hover:to-orange-700 text-white px-6 py-4 rounded-2xl transition-all font-semibold text-lg shadow-lg">
               Confirmer
             </button>
@@ -77,64 +72,59 @@
                 {{ editMode ? 'Modification' : 'Nouveau produit' }}
               </h2>
             </div>
-
+            
             <div class="p-6 space-y-5">
               <div>
                 <label class="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">Nom</label>
-                <input v-model="name" type="text" placeholder="MacBook Pro 16"
-                  class="w-full bg-gray-900 border-2 border-gray-700 text-white p-4 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all outline-none placeholder-gray-500"
+                <input v-model="name" type="text" placeholder="MacBook Pro 16" 
+                  class="w-full bg-gray-900 border-2 border-gray-700 text-white p-4 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all outline-none placeholder-gray-500" 
                   required />
               </div>
-
+              
               <div>
                 <label class="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">Prix</label>
                 <div class="relative">
-                  <input v-model.number="price" type="number" step="0.01" placeholder="2499.99"
-                    class="w-full bg-gray-900 border-2 border-gray-700 text-white p-4 pr-12 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all outline-none placeholder-gray-500"
+                  <input v-model.number="price" type="number" step="0.01" placeholder="2499.99" 
+                    class="w-full bg-gray-900 border-2 border-gray-700 text-white p-4 pr-12 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 transition-all outline-none placeholder-gray-500" 
                     required />
                   <span class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">€</span>
                 </div>
               </div>
-
+              
               <div>
                 <label class="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">Description</label>
                 <AiEditor v-model="description" />
               </div>
-
+              
               <div>
                 <label class="block text-sm font-bold text-gray-300 mb-3 uppercase tracking-wide">Image</label>
-                <button type="button"
+                <button type="button" 
                   class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 px-6 rounded-xl transition-all font-bold flex items-center justify-center gap-3 shadow-lg"
                   @click="() => fileInput.click()">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Choisir une image
                 </button>
                 <input ref="fileInput" type="file" accept="image/*" class="hidden" @change="onImageSelected" />
-
+                
                 <div v-if="imagePreview" class="mt-4 relative group">
-                  <img :src="imagePreview" alt="Aperçu"
+                  <img :src="imagePreview" alt="Aperçu" 
                     class="w-full h-56 rounded-2xl object-cover border-4 border-gray-700 shadow-lg" />
-                  <button type="button" @click="clearImage"
+                  <button type="button" @click="clearImage" 
                     class="absolute top-3 right-3 bg-rose-600 hover:bg-rose-700 text-white p-2.5 rounded-full transition-all shadow-lg opacity-0 group-hover:opacity-100">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M6 18L18 6M6 6l12 12" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
               </div>
-
+              
               <div class="pt-4 space-y-3">
-                <button @click="submitProduct" :disabled="!isFormValid" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 
-         hover:from-emerald-700 hover:to-teal-700 text-white 
-         py-4 px-6 rounded-xl transition-all font-bold text-lg shadow-lg
-         disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:from-emerald-600 disabled:hover:to-teal-600">
+                <button @click="submitProduct"
+                  class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white py-4 px-6 rounded-xl transition-all font-bold text-lg shadow-lg">
                   {{ editMode ? '💾 Enregistrer' : '✨ Créer le produit' }}
                 </button>
-
                 <button v-if="editMode" @click="cancelEdit"
                   class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-xl transition-all font-semibold">
                   Annuler
@@ -152,8 +142,7 @@
                 <div>
                   <h2 class="text-2xl font-bold text-white flex items-center gap-3">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                     </svg>
                     Catalogue
                   </h2>
@@ -161,70 +150,63 @@
                 </div>
                 <div class="flex items-center gap-4">
                   <div class="relative">
-                    <input v-model="searchQuery" type="text" placeholder="Rechercher..."
-                      class="w-64 bg-gray-900 border-2 border-gray-700 text-white p-3 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 outline-none" />
+                    <input v-model="searchQuery" type="text" placeholder="Rechercher..." class="w-64 bg-gray-900 border-2 border-gray-700 text-white p-3 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/20 outline-none" />
                     <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
                   </div>
 
                   <button v-if="selectedProducts.length"
-                    class="bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-xl transition-all font-bold shadow-lg flex items-center gap-2"
+                    class="bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-xl transition-all font-bold shadow-lg flex items-center gap-2" 
                     @click="confirmMultipleDelete">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                     {{ selectedProducts.length }}
                   </button>
                 </div>
               </div>
             </div>
-
+            
             <div class="p-6">
               <div v-if="filteredProducts.length" class="space-y-4">
                 <div v-for="p in filteredProducts" :key="p.id"
                   class="bg-gray-900 border-2 border-gray-700 hover:border-purple-500 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 group">
                   <div class="flex gap-5">
-                    <input type="checkbox" class="w-6 h-6 cursor-pointer accent-purple-600 rounded-lg mt-1"
+                    <input type="checkbox" 
+                      class="w-6 h-6 cursor-pointer accent-purple-600 rounded-lg mt-1" 
                       v-model="selectedProducts" :value="p.id" />
-
+                    
                     <div v-if="p.image" class="flex-shrink-0 cursor-pointer" @click="selectProduct(p)">
-                      <img :src="p.image" alt="produit"
+                      <img :src="p.image" alt="produit" 
                         class="w-28 h-28 object-cover rounded-xl border-2 border-gray-700 group-hover:border-purple-500 transition-all shadow-lg" />
                     </div>
-
+                    
                     <div class="flex-1 min-w-0 cursor-pointer" @click="selectProduct(p)">
-                      <h3
-                        class="font-bold text-xl text-white mb-2 truncate group-hover:text-purple-400 transition-colors">
+                      <h3 class="font-bold text-xl text-white mb-2 truncate group-hover:text-purple-400 transition-colors">
                         {{ p.name }}
                       </h3>
-                      <div class="text-gray-400 text-sm mb-3 line-clamp-2"
-                        v-html="p.description || 'Aucune description'"></div>
-                      <div
-                        class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-2 rounded-full font-bold shadow-lg">
+                      <div class="text-gray-400 text-sm mb-3 line-clamp-2" v-html="p.description || 'Aucune description'"></div>
+                      <div class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-2 rounded-full font-bold shadow-lg">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         {{ formatPrice(p.price) }}
                       </div>
                     </div>
-
+                    
                     <div class="flex flex-col gap-2">
-                      <button
-                        class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded-xl transition-all font-semibold shadow-lg flex items-center gap-2"
+                      <button 
+                        class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded-xl transition-all font-semibold shadow-lg flex items-center gap-2" 
                         @click.stop="startEdit(p)">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
                         Modifier
                       </button>
-                      <button
+                      <button 
                         class="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white px-4 py-2 rounded-xl transition-all font-semibold shadow-lg flex items-center gap-2"
                         @click.stop="confirmSingleDelete(p)">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                         Supprimer
                       </button>
@@ -232,13 +214,11 @@
                   </div>
                 </div>
               </div>
-
+              
               <div v-else class="text-center py-20">
-                <div
-                  class="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-900 flex items-center justify-center border-4 border-gray-700">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-900 flex items-center justify-center border-4 border-gray-700">
                   <svg class="w-16 h-16 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                   </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-gray-400 mb-2">Aucun produit</h3>
@@ -250,7 +230,11 @@
       </div>
     </div>
 
-    <ProductsDetails :product="selectedProduct" :formatPrice="formatPrice" @close="selectedProduct = null" />
+    <ProductsDetails
+      :product="selectedProduct"
+      :formatPrice="formatPrice"
+      @close="selectedProduct = null"
+    />
   </div>
 </template>
 
@@ -348,7 +332,7 @@ const submitProduct = async () => {
 
 const confirmSingleDelete = (p) => {
   openConfirm(
-    `Souhaitez-vous vraiment supprimer le produit "${p.name}" ?`,
+    `Souhaitez-vous vraiment supprimer le produit "${p.name}" ?`, 
     async () => { await deleteProduct(p.id) }
   )
 }
@@ -412,13 +396,6 @@ const onImageSelected = (e) => {
   reader.onload = (ev) => (imagePreview.value = ev.target.result)
   reader.readAsDataURL(f)
 }
-const isFormValid = computed(() => {
-  return (
-    name.value.trim().length > 0 &&
-    price.value !== null &&
-    !isNaN(Number(price.value)) &&
-    Number(price.value) >= 0)
-})
 
 const clearImage = () => {
   imagePreview.value = ''
@@ -455,54 +432,12 @@ onMounted(() => {
 
 <style scoped>
 @keyframes toast {
-  from {
-    transform: translateX(120%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  from { transform: translateX(120%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.85);
-    opacity: 0
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1
-  }
-}
-
-.animate-toast {
-  animation: toast 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.2s ease-out;
-}
-
-.animate-scaleIn {
-  animation: scaleIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes scaleIn { from { transform: scale(0.85); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+.animate-toast { animation: toast 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.animate-fadeIn { animation: fadeIn 0.2s ease-out; }
+.animate-scaleIn { animation: scaleIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); }.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 </style>

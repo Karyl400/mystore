@@ -128,11 +128,11 @@
               </div>
 
               <div class="pt-4 space-y-3">
-                <button @click="submitProduct" :disabled="!isFormValid" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 
+                <button @click="submitProduct" :disabled="isFormValid" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 
          hover:from-emerald-700 hover:to-teal-700 text-white 
          py-4 px-6 rounded-xl transition-all font-bold text-lg shadow-lg
          disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:from-emerald-600 disabled:hover:to-teal-600">
-                  {{ editMode ? '💾 Enregistrer' : '✨ Créer le produit' }}
+                  {{ editMode ? 'Enregistrer' : '✨ Créer le produit' }}
                 </button>
 
                 <button v-if="editMode" @click="cancelEdit"
@@ -314,6 +314,10 @@ const openConfirm = (messageText, callback) => {
 }
 
 const submitProduct = async () => {
+  if (!isFormValid.value) {
+    showError('Veuillez remplir tous les champs');
+    return;
+  }
   try {
     if (editMode.value && editId.value) {
       const productRef = doc(db, 'products', editId.value)
@@ -412,13 +416,19 @@ const onImageSelected = (e) => {
   reader.onload = (ev) => (imagePreview.value = ev.target.result)
   reader.readAsDataURL(f)
 }
+
 const isFormValid = computed(() => {
   return (
-    name.value.trim().length > 0 &&
-    price.value !== null &&
-    !isNaN(Number(price.value)) &&
-    Number(price.value) >= 0)
+    name.trim().length > 0 &&
+    price !== null &&
+    price !== '' &&
+    !isNaN(Number(price)) &&
+    Number(price) > 0 &&
+    description &&
+    description.trim().length > 0
+  )
 })
+
 
 const clearImage = () => {
   imagePreview.value = ''

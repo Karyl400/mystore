@@ -412,13 +412,6 @@ const onImageSelected = (e) => {
   reader.onload = (ev) => (imagePreview.value = ev.target.result)
   reader.readAsDataURL(f)
 }
-const isFormValid = computed(() => {
-  return (
-    name.value.trim().length > 0 &&
-    price.value !== null &&
-    !isNaN(Number(price.value)) &&
-    Number(price.value) >= 0)
-})
 
 const clearImage = () => {
   imagePreview.value = ''
